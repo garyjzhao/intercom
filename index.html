@@ -31,19 +31,39 @@
             list-style: none;
             display: flex;
         }
-        .tab-list li {
+        .tab-list .sr-only {
+            border: 0;
+            clip: rect(1px, 1px, 1px, 1px);
+            clip-path: inset(50%);
+            height: 1px;
+            overflow: hidden;
+            padding: 0;
+            position: absolute;
+            width: 1px;
+            white-space: nowrap;
+        }
+        .tab-list input ~ label {
             flex: 1 0 50%;
             display: flex;
             justify-content: center;
             border: 1px solid #000;
         }
         .tab-list input {
-            display: none;
         }
         .tab-list input:checked + label {
             color: red;
         }
 
+
+        .card__wrapper {
+            display:grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            grid-gap: 10px;
+        }
+        .card {
+            height: 250px;
+            border: 1px solid #333;
+        }
         .sandwich {
             width: 400px;
             margin: 0 auto;
@@ -81,16 +101,19 @@
         <img src="https://images.unsplash.com/photo-1475090169767-40ed8d18f67d?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=400&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMwMjc3fQ&amp;s=9637e6d5ae5a4e0d3c9781d0151e10ef">
     </header>
     <div>
-        <ul class="tab-list">
-            <li>
-                <input type="radio" name="tabs" id="basic" checked>
-                <label for="basic">Basic 🥪</label>
-            </li>
-            <li>
-                <input type="radio" name="tabs" id="gourmet">
-                <label for="gourmet">Gourmet 🥪</label>
-            </li>
-        </ul>
+        <div class="tab-list">
+            <input class="sr-only" type="radio" name="tabs" id="basic" checked>
+            <label for="basic">Basic 🥪</label>
+            <input class="sr-only" type="radio" name="tabs" id="gourmet">
+            <label for="gourmet">Gourmet 🥪</label>
+        </div>
+        <div class="card__wrapper">
+            <div class="card"></div>
+            <div class="card">5 / mo</div>
+            <div class="card">50 / mo</div>
+            <div class="card">200 / mo</div>
+            <div class="card">200+ / mo</div>
+        </div>
         <div class="sandwich sandwich--basic">
             <h2>Basic 🥪</h2>
             <h2>Pricing</h2>
@@ -122,7 +145,7 @@
                 </ul>
             </div>
         </div>
-        <div class="sandwich sandwich--gourmet">
+        <!-- <div class="sandwich sandwich--gourmet">
             <h2>Gourmet 🥪</h2>
             <h2>Pricing</h2>
             <div class="sandwich__plan">
@@ -152,7 +175,7 @@
                     <li>✔</li>
                 </ul>
             </div>
-        </div>
+        </div> -->
     </div>
     <section>
         <button id="sandwichButton">
