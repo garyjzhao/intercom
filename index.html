@@ -75,8 +75,11 @@
             box-shadow: -7px -2px 8px -5px rgba(90, 122, 190, .25), 8px -2px 8px -5px rgba(90, 122, 190, .25);
         }
 
-        .card__wrapper--gourmet {
+        .card__wrapper {
             display: none;
+        }
+        .card__wrapper.active {
+            display: block;
         }
 
         /* TODO: MS GRID */
@@ -255,7 +258,7 @@
             <li class="tab__toggles" id="gourmet">Gourmet 🥪</li>
         </ul>
     </div>
-    <div class="card__wrapper card__wrapper--basic">
+    <div class="card__wrapper card__wrapper--basic active">
         <div class="card__row card__row--price card-price">
             <h3 class="card-price__title">
                 Pricing
@@ -381,11 +384,11 @@
             $(this).addClass('active');
             const el = $(this).attr('id');
             if (el === 'basic') {
-                $('.card__wrapper').hide();
-                $('.card__wrapper--basic').show();
+                $('.card__wrapper--basic').addClass('active');
+                $('.card__wrapper--gourmet').removeClass('active');
             } else {
-                $('.card__wrapper').hide();
-                $('.card__wrapper--gourmet').show();
+                $('.card__wrapper--basic').removeClass('active');
+                $('.card__wrapper--gourmet').addClass('active');
             }
         });
 
