@@ -142,7 +142,15 @@
         .card__image {
             width: 100%;
             height: 100%;
-            background: url(https://images.unsplash.com/photo-1475090169767-40ed8d18f67d);
+        }
+        .card__image.card__image--basic {
+            background: url(https://images.unsplash.com/photo-1475090169767-40ed8d18f67d?ixid=eyJhcHBfaWQiOjMwMjc3fQ&&fm=jpg&w=400&fit=max);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .card__image.card__image--gourmet {
+            background: url(https://images.unsplash.com/photo-1468071174046-657d9d351a40?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&&fm=jpg&w=400&fit=max);
             background-size: cover;
             background-position: center;
         }
@@ -253,7 +261,7 @@
                 Pricing
             </h3>
             <div class="card-price__plan">
-                <div class="card__image"></div>
+                <div class="card__image card__image--basic"></div>
             </div>
             <div class="card-price__plan">
                 <h2>5 🥪 /mo</h2>
@@ -304,7 +312,7 @@
                 Pricing
             </h3>
             <div class="card-price__plan">
-                <div class="card__image"></div>
+                <div class="card__image card__image--gourmet"></div>
             </div>
             <div class="card-price__plan">
                 <h2>5 🥪 /mo</h2>
