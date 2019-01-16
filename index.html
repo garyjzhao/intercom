@@ -8,6 +8,10 @@
     <title>Gary Zhao --- Sandwich for Sale</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
             padding: 0;
@@ -34,19 +38,34 @@
             display: flex;
             list-style: none;
             padding: 0;
-            border-bottom: 1px solid #333;
         }
 
         .tab-list li {
             flex: 1 0 50%;
             display: flex;
             justify-content: center;
+            padding: 10px 0;
+            cursor: pointer;
+            padding: 10px 20px;
+            background-color: #f9f9f9;
+            color: #000;
+            font-weight: 400;
+            border: 1px solid #dedfe0;
+            -webkit-box-shadow: inset 0 -25px 30px -30px rgba(90, 122, 190, .25);
+            box-shadow: inset 0 -25px 30px -30px rgba(90, 122, 190, .25);
+            border-radius: 4px 4px 0 0;
+
         }
 
-        .tab-list li a {
-            text-decoration: none;
-            color: #000;
-            padding: 10px 0;
+        .tab-list li.active {
+            color: #286efa;
+            font-weight: 700;
+            background-color: #fff;
+            border-bottom-color: #fff;
+            border-bottom-width: 1px;
+            z-index: 6;
+            -webkit-box-shadow: -7px -2px 8px -5px rgba(90, 122, 190, .25), 8px -2px 8px -5px rgba(90, 122, 190, .25);
+            box-shadow: -7px -2px 8px -5px rgba(90, 122, 190, .25), 8px -2px 8px -5px rgba(90, 122, 190, .25);
         }
 
 
@@ -70,7 +89,7 @@
         }
 
         .card__wrapper--gourmet {
-            /* display: none; */
+            display: none;
         }
 
         .card {
@@ -92,6 +111,26 @@
             background-size: cover;
             background-position: center;
         }
+
+        .button__section {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .acknowledge__wrapper {
+            flex: 1 0 100%;
+            text-align: center;
+            margin: 10px;
+        }
+
+        button {
+            border-radius: 2px;
+            padding: 20px;
+            font-size: 1.5em;
+            cursor: pointer;
+            margin: 0 auto;
+        }
+
     </style>
 </head>
 
@@ -101,86 +140,105 @@
             Sandwiches as a Service
         </h1>
         <p>
-            Hey! Do you want to receive sandwiches on amoly basis? Find out more about our pricing and features!
+            Hey! Do you want to receive sandwiches on a monthly basis? Find out more about our pricing and features!
         </p>
     </header>
-    <div>
-        <div class="tab-list">
-            <ul>
-                <li><a href="#">Basic 🥪</a></li>
-                <li><a href="#">Gourmet 🥪</a></li>
-            </ul>
+    <div class="tab-list">
+        <ul>
+            <li onclick="show('basic')" class="active">Basic 🥪</li>
+            <li onclick="show('gourmet')">Gourmet 🥪</li>
+        </ul>
+    </div>
+    <div class="card__wrapper card__wrapper--basic">
+        <div class="card card--title card-title">
+            <div class="card-title__image"></div>
         </div>
-        <div class="card__wrapper card__wrapper--basic">
-            <div class="card card--title card-title">
-                <div class="card-title__image"></div>
-            </div>
-            <div class="card">
-                <div class="card__plan">
-                    <h2>5 🥪 /mo</h2>
-                    <div class="price">$40</div>
-                </div>
-                <div class="card__feature">
-                    free pickle
-                </div>
-            </div>
-            <div class="card">
-                <div class="card__plan">
-                    <h2>50 🥪 /mo</h2>
-                    <div class="price">$300</div>
-                </div>
-                <div class="card__feature">
-                    free pickle
-                </div>
-            </div>
-            <div class="card">
-                <div class="card__plan">
-                    <h2>200 🥪 /mo</h2>
-                    <div class="price">$700</div>
-                </div>
-                <div class="card__feature">
-                    free pickle
-                </div>
-            </div>
-            <div class="card">
-                <div class="card__plan">
-                    <h2>200+ 🥪 /mo</h2>
-                    <div class="price">Ask Us!</div>
-                </div>
-                <div class="card__feature">
-                    free pickle
-                </div>
-            </div>
-        </div>
-        <div class="card__wrapper card__wrapper--gourmet">
-            <div class="card card--title card-title">
-                <div class="card-title__image"></div>
-            </div>
-            <div class="card">
+        <div class="card">
+            <div class="card__plan">
                 <h2>5 🥪 /mo</h2>
-                <div class="price">$80</div>
+                <div class="price">$40</div>
             </div>
-            <div class="card">
+            <div class="card__feature">
+                free pickle
+            </div>
+        </div>
+        <div class="card">
+            <div class="card__plan">
                 <h2>50 🥪 /mo</h2>
-                <div class="price">$500</div>
+                <div class="price">$300</div>
             </div>
-            <div class="card">
+            <div class="card__feature">
+                free pickle
+            </div>
+        </div>
+        <div class="card">
+            <div class="card__plan">
                 <h2>200 🥪 /mo</h2>
-                <div class="price">$900</div>
+                <div class="price">$700</div>
             </div>
-            <div class="card">
+            <div class="card__feature">
+                free pickle
+            </div>
+        </div>
+        <div class="card">
+            <div class="card__plan">
                 <h2>200+ 🥪 /mo</h2>
                 <div class="price">Ask Us!</div>
             </div>
+            <div class="card__feature">
+                free pickle
+            </div>
         </div>
     </div>
-    <section>
+    <div class="card__wrapper card__wrapper--gourmet">
+        <div class="card card--title card-title">
+            <div class="card-title__image"></div>
+        </div>
+        <div class="card">
+            <h2>5 🥪 /mo</h2>
+            <div class="price">$80</div>
+        </div>
+        <div class="card">
+            <h2>50 🥪 /mo</h2>
+            <div class="price">$500</div>
+        </div>
+        <div class="card">
+            <h2>200 🥪 /mo</h2>
+            <div class="price">$900</div>
+        </div>
+        <div class="card">
+            <h2>200+ 🥪 /mo</h2>
+            <div class="price">Ask Us!</div>
+        </div>
+    </div>
+    <div class="button__section">
+        <div class="acknowledge__wrapper">
+            <input type="checkbox" id="acknowledge">
+            <label for="acknowledge">By checking this box, I acknowledge I may receive the most delicious sandwich I've
+                ever had.</label>
+        </div>
         <button id="sandwichButton">
-            send me a sandwich
+            Send Me a Sandwich
         </button>
-    </section>
-    <script>
+    </div>
 
+
+
+
+
+
+
+
+    <script>
+        const show = i => {
+            if (i == 'basic') {
+                document.querySelector('.card__wrapper--basic').style.display = 'grid';
+                document.querySelector('.card__wrapper--gourmet').style.display = 'none';
+            } else {
+                document.querySelector('.card__wrapper--basic').style.display = 'none';
+                document.querySelector('.card__wrapper--gourmet').style.display = 'grid';
+            }
+        }
     </script>
 </body>
 
