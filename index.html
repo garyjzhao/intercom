@@ -12,7 +12,7 @@
             margin: 0;
             padding: 0;
             font-family: 'Helvetica', sans-serif;
-            max-width: 980px;
+            max-width: 1400px;
             width: 100%;
             margin: 0 auto;
         }
@@ -48,8 +48,6 @@
             justify-content: center;
             border: 1px solid #000;
         }
-        .tab-list input {
-        }
         .tab-list input:checked + label {
             color: red;
         }
@@ -59,33 +57,37 @@
             display:grid;
             grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
             grid-gap: 10px;
+            padding: 10px;
+        }
+        @media screen and (max-width: 960px) {
+            .card__wrapper {
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+            }
+        }
+        @media screen and (max-width: 425px) {
+            .card__wrapper {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        .card__wrapper--gourmet {
+            /* display: none; */
         }
         .card {
             height: 250px;
             border: 1px solid #333;
-        }
-        .sandwich {
-            width: 400px;
-            margin: 0 auto;
-            border: 1px solid #333;
-            padding: 10px;
             text-align: center;
         }
-
-        .sandwich__plan,
-        .sandwich__feature {
-            display: flex;
+        @media screen and (max-width: 960px) {
+            .card-title {
+                display: none;
+            }
         }
-
-        .sandwich ul {
-            flex: 1 0 50%;
-            padding: 0;
-            list-style: none;
-        }
-
-        .sandwich li {
-            line-height: 20px;
-            margin-bottom: 10px;
+        .card-title__image {
+            width: 100%;
+            height: 100%;
+            background: url(https://images.unsplash.com/photo-1475090169767-40ed8d18f67d);
+            background-size: cover;
+            background-position: center;
         }
     </style>
 </head>
@@ -96,9 +98,8 @@
             Sandwiches as a Service
         </h1>
         <p>
-            Hey! Do you want to receive sandwiches on a monthly basis? Find out more about our pricing and features!
+            Hey! Do you want to receive sandwiches on amoly basis? Find out more about our pricing and features!
         </p>
-        <img src="https://images.unsplash.com/photo-1475090169767-40ed8d18f67d?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=400&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMwMjc3fQ&amp;s=9637e6d5ae5a4e0d3c9781d0151e10ef">
     </header>
     <div>
         <div class="tab-list">
@@ -107,75 +108,68 @@
             <input class="sr-only" type="radio" name="tabs" id="gourmet">
             <label for="gourmet">Gourmet 🥪</label>
         </div>
-        <div class="card__wrapper">
-            <div class="card"></div>
-            <div class="card">5 / mo</div>
-            <div class="card">50 / mo</div>
-            <div class="card">200 / mo</div>
-            <div class="card">200+ / mo</div>
+        <div class="card__wrapper card__wrapper--basic">
+            <div class="card card--title card-title">
+                <div class="card-title__image"></div>
+            </div>
+            <div class="card">
+                <div class="card__plan">
+                    <h2>5 🥪 /mo</h2>
+                    <div class="price">$40</div>
+                </div>
+                <div class="card__feature">
+                    free pickle
+                </div>
+            </div>
+            <div class="card">
+                <div class="card__plan">
+                    <h2>50 🥪 /mo</h2>
+                    <div class="price">$300</div>
+                </div>
+                <div class="card__feature">
+                    free pickle
+                </div>
+            </div>
+            <div class="card">
+                <div class="card__plan">
+                    <h2>200 🥪 /mo</h2>
+                    <div class="price">$700</div>
+                </div>
+                <div class="card__feature">
+                    free pickle
+                </div>
+            </div>
+            <div class="card">
+                <div class="card__plan">
+                    <h2>200+ 🥪 /mo</h2>
+                    <div class="price">Ask Us!</div>
+                </div>
+                <div class="card__feature">
+                    free pickle
+                </div>
+            </div>
         </div>
-        <div class="sandwich sandwich--basic">
-            <h2>Basic 🥪</h2>
-            <h2>Pricing</h2>
-            <div class="sandwich__plan">
-                <ul class="sandwich__plan--per-month">
-                    <li>🥪s</li>
-                    <li>5 / mo</li>
-                    <li>50 / mo</li>
-                    <li>200 / mo</li>
-                    <li>200+ / mo</li>
-                </ul>
-                <ul class="sandwich__plan--price">
-                    <li>&nbsp;</li>
-                    <li>$40</li>
-                    <li>$300</li>
-                    <li>$700</li>
-                    <li>Ask Us!</li>
-                </ul>
+        <div class="card__wrapper card__wrapper--gourmet">
+            <div class="card card--title card-title">
+                <div class="card-title__image"></div>
             </div>
-            <h2>Features</h2>
-            <div class="sandwich__feature">
-                <ul class="sandwich__feature--per-month">
-                    <li>Free Pickles</li>
-                    <li>Premium Mayo</li>
-                </ul>
-                <ul class="sandwich__feature--price">
-                    <li>ⅹ</li>
-                    <li>✔</li>
-                </ul>
+            <div class="card">
+                <h2>5 🥪 /mo</h2>
+                <div class="price">$80</div>
+            </div>
+            <div class="card">
+                <h2>50 🥪 /mo</h2>
+                <div class="price">$500</div>
+            </div>
+            <div class="card">
+                <h2>200 🥪 /mo</h2>
+                <div class="price">$900</div>
+            </div>
+            <div class="card">
+                <h2>200+ 🥪 /mo</h2>
+                <div class="price">Ask Us!</div>
             </div>
         </div>
-        <!-- <div class="sandwich sandwich--gourmet">
-            <h2>Gourmet 🥪</h2>
-            <h2>Pricing</h2>
-            <div class="sandwich__plan">
-                <ul class="sandwich__plan--per-month">
-                    <li>🥪s</li>
-                    <li>5 / mo</li>
-                    <li>50 / mo</li>
-                    <li>200 / mo</li>
-                    <li>200+ / mo</li>
-                </ul>
-                <ul class="sandwich__plan--price">
-                    <li>&nbsp;</li>
-                    <li>$80</li>
-                    <li>$500</li>
-                    <li>$900</li>
-                    <li>Ask Us!</li>
-                </ul>
-            </div>
-            <h2>Features</h2>
-            <div class="sandwich__feature">
-                <ul class="sandwich__feature--per-month">
-                    <li>Free Pickles</li>
-                    <li>Premium Mayo</li>
-                </ul>
-                <ul class="sandwich__feature--price">
-                    <li>✔</li>
-                    <li>✔</li>
-                </ul>
-            </div>
-        </div> -->
     </div>
     <section>
         <button id="sandwichButton">
@@ -183,10 +177,7 @@
         </button>
     </section>
     <script>
-        // document.querySelector('#sandwichButton').addEventListener('click', () => {
-        //     alert(`Yes you have pressed the button`);
-        // }, false)
-        // console.log('woohooo')
+
     </script>
 </body>
 
