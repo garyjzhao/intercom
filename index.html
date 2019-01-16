@@ -236,8 +236,8 @@
     </header>
     <div class="tab-list">
         <ul>
-            <li onclick="show('basic')" class="active">Basic 🥪</li>
-            <li onclick="show('gourmet')">Gourmet 🥪</li>
+            <li class="tab__toggles active" id="basic">Basic 🥪</li>
+            <li class="tab__toggles" id="gourmet">Gourmet 🥪</li>
         </ul>
     </div>
     <div class="card__wrapper card__wrapper--basic">
@@ -361,15 +361,18 @@
 
 
     <script>
-        const show = i => {
-            if (i == 'basic') {
-                document.querySelector('.card__wrapper--basic').style.display = 'grid';
-                document.querySelector('.card__wrapper--gourmet').style.display = 'none';
+        $('.tab__toggles').click(function () {
+            $(this).siblings().removeClass('active');
+            $(this).addClass('active');
+            const el = $(this).attr('id');
+            if (el === 'basic') {
+                $('.card__wrapper').hide();
+                $('.card__wrapper--basic').show();
             } else {
-                document.querySelector('.card__wrapper--basic').style.display = 'none';
-                document.querySelector('.card__wrapper--gourmet').style.display = 'grid';
+                $('.card__wrapper').hide();
+                $('.card__wrapper--gourmet').show();
             }
-        }
+        });
     </script>
 </body>
 
