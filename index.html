@@ -34,7 +34,6 @@
             width: 100%;
         }
 
-        /* TODO: WORK ON TAB LIST --- RESPONSIVE */
         .tab-list {
             margin: 0 auto;
             padding: 0 10px;
@@ -73,12 +72,14 @@
             font-weight: 700;
             background-color: #fff;
             border-bottom-color: #fff;
-            border-bottom-width: 1px;
-            z-index: 6;
             box-shadow: -7px -2px 8px -5px rgba(90, 122, 190, .25), 8px -2px 8px -5px rgba(90, 122, 190, .25);
         }
 
+        .card__wrapper--gourmet {
+            display: none;
+        }
 
+        /* TODO: MS GRID */
         .card__row {
             display: grid;
             -ms-grid-columns: 1fr 10px 1fr 10px 1fr 10px 1fr 10px 1fr;
@@ -101,9 +102,23 @@
             }
         }
 
-        .card__wrapper--gourmet {
-            display: none;
+        .card-price h3 {
+            font-family: 'Montserrat', serif;
+            grid-column: span 5;
+            place-self: center;
         }
+        @media screen and (max-width: 960px) {
+            .card-price h3 {
+                grid-column: span 4;
+            }
+        }
+        @media screen and (max-width: 660px) {
+            .card-price h3 {
+                grid-column: span 2;
+            }
+
+        }
+
 
         .card-price__plan {
             height: 250px;
@@ -114,7 +129,7 @@
             align-items: center;
         }
         @media screen and (max-width: 960px) {
-            .card-price__plan:first-child {
+            .card-price__plan:first-of-type {
                 display: none;
             }
         }
@@ -156,7 +171,6 @@
             .card-feature h3 {
                 grid-column: span 2;
             }
-
         }
         .card-feature__box {
             text-align: center;
@@ -254,6 +268,9 @@
     </div>
     <div class="card__wrapper card__wrapper--basic">
         <div class="card__row card__row--price card-price">
+            <h3 class="card-price__title">
+                Pricing
+            </h3>
             <div class="card-price__plan">
                 <div class="card__image"></div>
             </div>
