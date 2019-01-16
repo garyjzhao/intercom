@@ -36,19 +36,22 @@
 
         /* TODO: WORK ON TAB LIST --- RESPONSIVE */
         .tab-list {
-            width: 490px;
             margin: 0 auto;
-            padding: 10px;
+            padding: 0 10px;
             font-family: 'Montserrat', serif;
+            border-bottom: 1px solid #ddd;
         }
 
         .tab-list ul {
             display: flex;
+            justify-content: center;
             list-style: none;
             padding: 0;
+            margin: 0;
         }
 
         .tab-list li {
+            max-width: 245px;
             flex: 1 0 50%;
             display: flex;
             justify-content: center;
@@ -58,9 +61,11 @@
             background-color: #f9f9f9;
             color: #000;
             font-weight: 400;
-            border: 1px solid #dedfe0;
+            border: 1px solid #ddd;
             box-shadow: inset 0 -25px 30px -30px rgba(90, 122, 190, .25);
             border-radius: 4px 4px 0 0;
+            position: relative;
+            bottom: -1px;
 
         }
 
@@ -242,12 +247,12 @@
             Hey! Do you want to receive sandwiches on a monthly basis? Find out more about our pricing and features!
         </p>
     </header>
-    <!-- <div class="tab-list">
+    <div class="tab-list">
         <ul>
             <li onclick="show('basic')" class="active">Basic 🥪</li>
             <li onclick="show('gourmet')">Gourmet 🥪</li>
         </ul>
-    </div> -->
+    </div>
     <div class="card__wrapper card__wrapper--basic">
         <div class="card__row card__row--price card-price">
             <div class="card-price__plan">
