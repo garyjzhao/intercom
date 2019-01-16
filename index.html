@@ -98,6 +98,20 @@
             text-align: center;
         }
 
+        .card__plan {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card__plan h2,
+        .card__plan .price {
+            /* flex: 1 0 100%; */
+        }
+
+
         @media screen and (max-width: 960px) {
             .card-title {
                 display: none;
@@ -158,17 +172,11 @@
                 <h2>5 🥪 /mo</h2>
                 <div class="price">$40</div>
             </div>
-            <div class="card__feature">
-                free pickle
-            </div>
         </div>
         <div class="card">
             <div class="card__plan">
                 <h2>50 🥪 /mo</h2>
                 <div class="price">$300</div>
-            </div>
-            <div class="card__feature">
-                free pickle
             </div>
         </div>
         <div class="card">
@@ -176,17 +184,11 @@
                 <h2>200 🥪 /mo</h2>
                 <div class="price">$700</div>
             </div>
-            <div class="card__feature">
-                free pickle
-            </div>
         </div>
         <div class="card">
             <div class="card__plan">
                 <h2>200+ 🥪 /mo</h2>
                 <div class="price">Ask Us!</div>
-            </div>
-            <div class="card__feature">
-                free pickle
             </div>
         </div>
     </div>
@@ -218,7 +220,7 @@
                 ever had.</label>
         </div>
         <button id="sandwichButton">
-            Send Me a Sandwich
+            Send Me a 🥪
         </button>
     </div>
 
