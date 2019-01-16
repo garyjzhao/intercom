@@ -37,6 +37,7 @@
             width: 490px;
             margin: 0 auto;
             padding: 10px;
+            font-family: 'Montserrat', serif;
         }
 
         .tab-list ul {
@@ -97,7 +98,51 @@
             display: none;
         }
 
-        .card {
+
+        .card-price {
+            height: 250px;
+            border: 1px solid #333;
+            text-align: center;
+        }
+        .card-price__plan {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card__image {
+            width: 100%;
+            height: 100%;
+            background: url(https://images.unsplash.com/photo-1475090169767-40ed8d18f67d);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .card-price__plan h2 {
+            margin: 0 0 14px;
+        }
+
+        .card__feature {
+            text-align: center;
+            display: grid;
+            grid-template-rows: 1fr 1fr 1fr;
+        }
+        .card__feature h3 {
+            font-family: 'Montserrat', serif;
+        }
+
+        .card-feature__pickles,
+        .card-feature__mayo {
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #333;
+            margin-bottom: 10px;
+        }
+        /* .card {
             height: 250px;
             border: 1px solid #333;
             text-align: center;
@@ -113,7 +158,7 @@
 
         .card__plan h2,
         .card__plan .price {
-            /* flex: 1 0 100%; */
+            margin: 0 0 14px;
         }
 
 
@@ -121,15 +166,9 @@
             .card-title {
                 display: none;
             }
-        }
+        } */
 
-        .card-title__image {
-            width: 100%;
-            height: 100%;
-            background: url(https://images.unsplash.com/photo-1475090169767-40ed8d18f67d);
-            background-size: cover;
-            background-position: center;
-        }
+
 
         .button__section {
             display: flex;
@@ -169,32 +208,72 @@
         </ul>
     </div>
     <div class="card__wrapper card__wrapper--basic">
+        <div class="card">
+            <div class="card__price card-price">
+                <div class="card-price__plan">
+                    <div class="card__image"></div>
+                </div>
+            </div>
+            <div class="card__feature">
+                <h3>Features</h3>
+                <div class="card-feature__pickles">Free Pickles</div>
+                <div class="card-feature__mayo">Premium Mayo</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card__price card-price">
+                <div class="card-price__plan">
+                    <h2>5 🥪 /mo</h2>
+                    <h2>$40</h2>
+                </div>
+            </div>
+            <div class="card__feature">
+                <div></div>
+                <div class="card-feature__pickles">ⅹ</div>
+                <div class="card-feature__mayo">✔</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card__price card-price">
+                <div class="card-price__plan">
+                    <h2>50 🥪 /mo</h2>
+                    <h2>$300</h2>
+                </div>
+            </div>
+            <div class="card__feature">
+                <div></div>
+                <div class="card-feature__pickles">ⅹ</div>
+                <div class="card-feature__mayo">✔</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card__price card-price">
+                <div class="card-price__plan">
+                    <h2>200 🥪 /mo</h2>
+                    <h2>$700</h2>
+                </div>
+            </div>
+            <div class="card__feature">
+                <div></div>
+                <div class="card-feature__pickles">ⅹ</div>
+                <div class="card-feature__mayo">✔</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card__price card-price">
+                <div class="card-price__plan">
+                    <h2>200 🥪++ /mo</h2>
+                    <h2>Ask us!</h2>
+                </div>
+            </div>
+            <div class="card__feature">
+                <div></div>
+                <div class="card-feature__pickles">ⅹ</div>
+                <div class="card-feature__mayo">✔</div>
+            </div>
+        </div>
         <div class="card card--title card-title">
             <div class="card-title__image"></div>
-        </div>
-        <div class="card">
-            <div class="card__plan">
-                <h2>5 🥪 /mo</h2>
-                <div class="price">$40</div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card__plan">
-                <h2>50 🥪 /mo</h2>
-                <div class="price">$300</div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card__plan">
-                <h2>200 🥪 /mo</h2>
-                <div class="price">$700</div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card__plan">
-                <h2>200+ 🥪 /mo</h2>
-                <div class="price">Ask Us!</div>
-            </div>
         </div>
     </div>
     <div class="card__wrapper card__wrapper--gourmet">
