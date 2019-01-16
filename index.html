@@ -26,7 +26,23 @@
             width: 100%;
         }
 
-        .tab-list {}
+        .tab-list {
+            padding: 0 10px;
+            list-style: none;
+            display: flex;
+        }
+        .tab-list li {
+            flex: 1 0 50%;
+            display: flex;
+            justify-content: center;
+            border: 1px solid #000;
+        }
+        .tab-list input {
+            display: none;
+        }
+        .tab-list input:checked + label {
+            color: red;
+        }
 
         .sandwich {
             width: 400px;
@@ -66,8 +82,14 @@
     </header>
     <div>
         <ul class="tab-list">
-            <li><a href="#">Basic 🥪</a></li>
-            <li><a href="#">Gourmet 🥪</a></li>
+            <li>
+                <input type="radio" name="tabs" id="basic" checked>
+                <label for="basic">Basic 🥪</label>
+            </li>
+            <li>
+                <input type="radio" name="tabs" id="gourmet">
+                <label for="gourmet">Gourmet 🥪</label>
+            </li>
         </ul>
         <div class="sandwich sandwich--basic">
             <h2>Basic 🥪</h2>
