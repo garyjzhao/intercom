@@ -34,6 +34,47 @@
             width: 100%;
         }
 
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin: 0 auto;
+            padding: 0 10px;
+            font-family: 'Montserrat', serif;
+            border-bottom: 1px solid #ddd;
+            /* position: relative;
+            bottom: -1px; */
+        }
+
+        .tabs input {
+            display: none;
+        }
+
+        .tabs input ~ label {
+            max-width: 245px;
+            flex: 1 0 50%;
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+            cursor: pointer;
+            padding: 10px 20px;
+            background-color: #f9f9f9;
+            color: #000;
+            font-weight: 400;
+            border: 1px solid #ddd;
+            box-shadow: inset 0 -25px 30px -30px rgba(90, 122, 190, .25);
+            border-radius: 4px 4px 0 0;
+            position: relative;
+            bottom: -1px;
+        }
+
+        .tabs input:checked + label {
+            color: #286efa;
+            font-weight: 700;
+            background-color: #fff;
+            border-bottom-color: #fff;
+            box-shadow: -7px -2px 8px -5px rgba(90, 122, 190, .25), 8px -2px 8px -5px rgba(90, 122, 190, .25);
+        }
+
         .tab-list {
             margin: 0 auto;
             padding: 0 10px;
@@ -276,11 +317,11 @@
             Hey! Do you want to receive sandwiches on a monthly basis? Find out more about our pricing and features!
         </p>
     </header>
-    <div class="tab-list">
-        <ul>
-            <li class="tab__toggles active" id="basic">Basic 🥪</li>
-            <li class="tab__toggles" id="gourmet">Gourmet 🥪</li>
-        </ul>
+    <div class="tabs">
+        <input class="test" type="radio" name="toggle" id="basic2" checked>
+        <label for="basic2">Basic 🥪</label>
+        <input class="test" type="radio" name="toggle" id="gourmet2">
+        <label for="gourmet2">Gourmet 🥪</label>
     </div>
     <div class="card__wrapper card__wrapper--basic active">
         <div class="card__row card__row--price card-price">
@@ -428,7 +469,29 @@
         $('#sandwichButton').prop('disabled', true);
         $('#sandwichButton').click(function () {
             alert('🥪🥪🥪🥪');
-        })
+        });
+
+
+        // Click Radio Buttons to swap Plan Cards
+        document.addEventListener('click', () => {
+            let basic = document.querySelector('.card__wrapper--basic');
+            let gourmet = document.querySelector('.card__wrapper--gourmet');
+            if (!event.target.classList.contains('test')) return;
+            if (event.target.getAttribute('id') === 'basic2') {
+                basic.classList.add('active');
+                gourmet.classList.remove('active');
+            } else {
+                console.log('fired')
+                gourmet.classList.add('active');
+                basic.classList.remove('active');
+            }
+        }, false);
+
+
+
+
+
+
     </script>
 </body>
 
