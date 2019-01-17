@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Gary Zhao --- Sandwich for Sale</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script> -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:500|Source+Sans+Pro" rel="stylesheet">
     <style>
         * {
@@ -318,9 +318,9 @@
         </p>
     </header>
     <div class="tabs">
-        <input class="test" type="radio" name="toggle" id="basic2" checked>
+        <input class="tabs__input" type="radio" name="toggle" id="basic2" checked>
         <label for="basic2">Basic 🥪</label>
-        <input class="test" type="radio" name="toggle" id="gourmet2">
+        <input class="tabs__input" type="radio" name="toggle" id="gourmet2">
         <label for="gourmet2">Gourmet 🥪</label>
     </div>
     <div class="card__wrapper card__wrapper--basic active">
@@ -431,7 +431,7 @@
             <label for="acknowledge">By checking this box, I acknowledge I may receive the most delicious sandwich I've
                 ever had.</label>
         </div>
-        <button id="sandwichButton">
+        <button id="sandwichButton" disabled>
             Send Me 🥪
         </button>
     </div>
@@ -444,39 +444,11 @@
 
 
     <script>
-        $('.tab__toggles').click(function () {
-            $(this).siblings().removeClass('active');
-            $(this).addClass('active');
-            const el = $(this).attr('id');
-            if (el === 'basic') {
-                $('.card__wrapper--basic').addClass('active');
-                $('.card__wrapper--gourmet').removeClass('active');
-            } else {
-                $('.card__wrapper--basic').removeClass('active');
-                $('.card__wrapper--gourmet').addClass('active');
-            }
-        });
-
-        $('input[type="checkbox"]').click(function () {
-            if ($('input[type="checkbox"]:checked').length > 0) {
-                $('#sandwichButton').prop('disabled', false);
-            } else {
-                $('#sandwichButton').prop('disabled', true);
-            }
-        });
-
-
-        $('#sandwichButton').prop('disabled', true);
-        $('#sandwichButton').click(function () {
-            alert('🥪🥪🥪🥪');
-        });
-
-
         // Click Radio Buttons to swap Plan Cards
         document.addEventListener('click', () => {
             let basic = document.querySelector('.card__wrapper--basic');
             let gourmet = document.querySelector('.card__wrapper--gourmet');
-            if (!event.target.classList.contains('test')) return;
+            if (!event.target.classList.contains('tabs__input')) return;
             if (event.target.getAttribute('id') === 'basic2') {
                 basic.classList.add('active');
                 gourmet.classList.remove('active');
@@ -487,8 +459,19 @@
             }
         }, false);
 
+        // Sandwich Submit Button
+        document.querySelector('#sandwichButton').addEventListener('click', () => {
+            alert('🥪🥪🥪🥪');
+        }, false);
 
 
+        $('input[type="checkbox"]').click(function () {
+            if ($('input[type="checkbox"]:checked').length > 0) {
+                $('#sandwichButton').prop('disabled', false);
+            } else {
+                $('#sandwichButton').prop('disabled', true);
+            }
+        });
 
 
 
