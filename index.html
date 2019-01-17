@@ -8,6 +8,7 @@
     <title>Gary Zhao --- Sandwich for Sale</title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:500|Source+Sans+Pro" rel="stylesheet">
     <style>
+
         * {
             box-sizing: border-box;
         }
@@ -20,9 +21,11 @@
             width: 100%;
             margin: 0 auto;
         }
+
         h1 {
             font-family: 'Montserrat', serif;
         }
+
         header {
             padding: 10px;
             text-align: center;
@@ -40,8 +43,6 @@
             padding: 0 10px;
             font-family: 'Montserrat', serif;
             border-bottom: 1px solid #ddd;
-            /* position: relative;
-            bottom: -1px; */
         }
 
         .tabs input {
@@ -122,7 +123,6 @@
             display: block;
         }
 
-        /* TODO: MS GRID */
         .card__row {
             display: -ms-grid;
             display: grid;
@@ -156,12 +156,14 @@
             -ms-grid-row-align: center;
             align-self: center;
         }
+
         @media screen and (max-width: 960px) {
             .card-price h3 {
                 -ms-grid-column-span: 4;
                 grid-column: span 4;
             }
         }
+
         @media screen and (max-width: 660px) {
             .card-price h3 {
                 -ms-grid-column-span: 2;
@@ -169,7 +171,6 @@
             }
 
         }
-
 
         .card-price__plan {
             height: 250px;
@@ -179,11 +180,13 @@
             justify-content: center;
             align-items: center;
         }
+
         @media screen and (max-width: 960px) {
             .card-price__plan:first-of-type {
                 display: none;
             }
         }
+
         @media screen and (max-width: 660px) {
             .card-price__plan {
                 height: 150px;
@@ -193,17 +196,16 @@
         .card__image {
             width: 100%;
             height: 100%;
-        }
-        .card__image.card__image--basic {
-            background: url(https://images.unsplash.com/photo-1475090169767-40ed8d18f67d?ixid=eyJhcHBfaWQiOjMwMjc3fQ&&fm=jpg&w=400&fit=max);
             background-size: cover;
             background-position: center;
         }
 
+        .card__image.card__image--basic {
+            background-image: url(https://images.unsplash.com/photo-1475090169767-40ed8d18f67d?ixid=eyJhcHBfaWQiOjMwMjc3fQ&&fm=jpg&w=400&fit=max);
+        }
+
         .card__image.card__image--gourmet {
-            background: url(https://images.unsplash.com/photo-1468071174046-657d9d351a40?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&&fm=jpg&w=400&fit=max);
-            background-size: cover;
-            background-position: center;
+            background-image: url(https://images.unsplash.com/photo-1468071174046-657d9d351a40?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&&fm=jpg&w=400&fit=max);
         }
 
         .card-price__plan h2 {
