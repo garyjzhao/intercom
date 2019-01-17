@@ -84,6 +84,7 @@
 
         /* TODO: MS GRID */
         .card__row {
+            display: -ms-grid;
             display: grid;
             -ms-grid-columns: 1fr 10px 1fr 10px 1fr 10px 1fr 10px 1fr;
             grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -107,17 +108,23 @@
 
         .card-price h3 {
             font-family: 'Montserrat', serif;
+            -ms-grid-column-span: 5;
             grid-column: span 5;
+            -ms-grid-column-align: center;
             justify-self: center;
+            -ms-flex-item-align: center;
+            -ms-grid-row-align: center;
             align-self: center;
         }
         @media screen and (max-width: 960px) {
             .card-price h3 {
+                -ms-grid-column-span: 4;
                 grid-column: span 4;
             }
         }
         @media screen and (max-width: 660px) {
             .card-price h3 {
+                -ms-grid-column-span: 2;
                 grid-column: span 2;
             }
 
@@ -171,17 +178,23 @@
 
         .card-feature h3 {
             font-family: 'Montserrat', serif;
+            -ms-grid-column-span: 5;
             grid-column: span 5;
+            -ms-grid-column-align: center;
             justify-self: center;
+            -ms-flex-item-align: center;
+            -ms-grid-row-align: center;
             align-self: center;
         }
         @media screen and (max-width: 960px) {
             .card-feature h3 {
+                -ms-grid-column-span: 4;
                 grid-column: span 4;
             }
         }
         @media screen and (max-width: 660px) {
             .card-feature h3 {
+                -ms-grid-column-span: 2;
                 grid-column: span 2;
             }
         }
@@ -194,6 +207,7 @@
         }
         @media screen and (max-width: 960px) {
             .card-feature__box {
+                -ms-grid-column-span: 2;
                 grid-column: span 2;
             }
             .card-feature__box:nth-of-type(n+3) {
@@ -202,6 +216,7 @@
         }
         @media screen and (max-width: 660px) {
             .card-feature__box {
+                -ms-grid-column-span: 1;
                 grid-column: span 1;
             }
         }
