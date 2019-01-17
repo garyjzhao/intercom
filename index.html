@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Gary Zhao --- Sandwich for Sale</title>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script> -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:500|Source+Sans+Pro" rel="stylesheet">
     <style>
         * {
@@ -464,14 +463,15 @@
             alert('🥪🥪🥪🥪');
         }, false);
 
-
-        $('input[type="checkbox"]').click(function () {
-            if ($('input[type="checkbox"]:checked').length > 0) {
-                $('#sandwichButton').prop('disabled', false);
+        // Check to see if Acknoledgement is checked
+        document.querySelector('input[type="checkbox"]').addEventListener('click', () => {
+            let checkbox = document.querySelector('input[type="checkbox"]');
+            if (checkbox.checked) {
+                document.querySelector('#sandwichButton').disabled = false
             } else {
-                $('#sandwichButton').prop('disabled', true);
+                document.querySelector('#sandwichButton').disabled = true
             }
-        });
+        }, false);
 
 
 
