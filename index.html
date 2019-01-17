@@ -243,18 +243,25 @@
         }
 
         button {
-            background-color: #286efa;
+            background: #286efa;
             color: #fff;
+            border: 1px solid #286efa;
             border-radius: 4px;
             padding: 20px;
             font-size: 24px;
             margin: 0 auto;
             cursor: pointer;
+            transition: all 0.2s;
         }
         button:disabled {
             cursor: not-allowed;
-            background-color: #f9f9f9;
+            background: #f9f9f9;
             color:#ddd;
+            border: 1px solid #ddd;
+        }
+        button:not(:disabled):hover {
+            background: #fff;
+            color: #286efa;
         }
 
     </style>
