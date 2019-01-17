@@ -228,18 +228,21 @@
             -ms-grid-row-align: center;
             align-self: center;
         }
+
         @media screen and (max-width: 960px) {
             .card-feature h3 {
                 -ms-grid-column-span: 4;
                 grid-column: span 4;
             }
         }
+
         @media screen and (max-width: 660px) {
             .card-feature h3 {
                 -ms-grid-column-span: 2;
                 grid-column: span 2;
             }
         }
+
         .card-feature__box {
             text-align: center;
             display: grid;
@@ -247,6 +250,7 @@
             grid-template-rows: 1fr 1fr;
             grid-gap: 10px;
         }
+
         @media screen and (max-width: 960px) {
             .card-feature__box {
                 -ms-grid-column-span: 2;
@@ -256,6 +260,7 @@
                 display: none;
             }
         }
+
         @media screen and (max-width: 660px) {
             .card-feature__box {
                 -ms-grid-column-span: 1;
@@ -272,12 +277,12 @@
             border: 1px solid #333;
         }
 
-
         .button__section {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
         }
+
         .acknowledge__wrapper {
             flex: 1 0 100%;
             text-align: center;
@@ -295,12 +300,14 @@
             cursor: pointer;
             transition: all 0.2s;
         }
+
         button:disabled {
             cursor: not-allowed;
             background: #f9f9f9;
             color:#ddd;
             border: 1px solid #ddd;
         }
+
         button:not(:disabled):hover {
             background: #fff;
             color: #286efa;
