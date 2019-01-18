@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Gary Zhao --- Sandwich for Sale</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:500|Source+Sans+Pro" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0 auto;
+            padding: 0 0 25px;
+            font-family: 'Source Sans Pro', 'Helvetica', sans-serif;
+            max-width: 1400px;
+            width: 100%;
+        }
+
+        h1 {
+            font-family: 'Montserrat', serif;
+        }
+
+        header {
+            padding: 10px;
+            text-align: center;
+        }
+
+            header img {
+                max-width: 400px;
+                width: 100%;
+            }
+
+        .tabs {
+            margin: 0 auto;
+            padding: 0 10px;
+            font-family: 'Montserrat', serif;
+            border-bottom: 1px solid #ddd;
+        }
+
+            .tabs ul {
+                display: flex;
+                justify-content: center;
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            .tabs li {
+                max-width: 245px;
+                flex: 1 0 50%;
+                display: flex;
+                justify-content: center;
+                padding: 10px 0;
+                cursor: pointer;
+                padding: 10px 20px;
+                background-color: #f9f9f9;
+                color: #000;
+                font-weight: 400;
+                border: 1px solid #ddd;
+                box-shadow: inset 0 -25px 30px -30px rgba(90, 122, 190, .25);
+                border-radius: 4px 4px 0 0;
+                position: relative;
+                bottom: -1px;
+            }
+
+                .tabs li.active {
+                    color: #286efa;
+                    font-weight: 700;
+                    background-color: #fff;
+                    border-bottom-color: #fff;
+                    box-shadow: -7px -2px 8px -5px rgba(90, 122, 190, .25), 8px -2px 8px -5px rgba(90, 122, 190, .25);
+                }
+
+        .card__wrapper {
+            display: none;
+        }
+        .card__wrapper.active {
+            display: block;
+        }
+
+        .card__row {
+            padding: 10px;
+        }
+
+        .card-price h3,
+        .card-feature h3 {
+            font-family: 'Montserrat', serif;
+            flex: 1 0 100%;
+            text-align: center;
+        }
+
+        .card-price__plan__wrapper,
+        .card-feature__box__wrapper {
+            display: flex;
+        }
+
+            @media screen and (max-width: 660px) {
+                .card-price__plan__wrapper,
+                .card-feature__box__wrapper {
+                    flex-wrap: wrap;
+                }
+            }
+
+        .card-price__plan {
+            height: 250px;
+            flex: 1 1 20%;
+            margin-right: 10px;
+            border: 1px solid #333;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+            .card-price__plan:last-child {
+                margin-right: 0;
+            }
+
+            @media screen and (max-width: 960px) {
+                .card-price__plan:first-of-type {
+                    display: none;
+                }
+            }
+
+            @media screen and (max-width: 660px) {
+                .card-price__plan {
+                    height: 150px;
+                    flex: 1 1 48%;
+                    margin-bottom: 10px;
+                }
+                .card-price__plan:nth-of-type(odd) {
+                    margin-right: 0;
+                }
+            }
+
+        .card__image {
+            width: 100%;
+            height: 100%;
+        }
+            .card__image.card__image--basic {
+                background: url(https://images.unsplash.com/photo-1475090169767-40ed8d18f67d?ixid=eyJhcHBfaWQiOjMwMjc3fQ&&fm=jpg&w=400&fit=max);
+                background-size: cover;
+                background-position: center;
+            }
+
+            .card__image.card__image--gourmet {
+                background: url(https://images.unsplash.com/photo-1468071174046-657d9d351a40?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&&fm=jpg&w=400&fit=max);
+                background-size: cover;
+                background-position: center;
+            }
+
+        .card-price__plan p {
+            text-align: center;
+            margin: 0 0 14px;
+            font-size: 24px;
+        }
+
+        .card-feature__box {
+            text-align: center;
+            flex: 1 1 20%;
+            margin-right: 10px;
+        }
+
+            .card-feature__box:last-child {
+                margin: 0;
+            }
+
+            @media screen and (max-width: 960px) {
+                .card-feature__box {
+                    flex: 1 1 48%
+                }
+
+                .card-feature__box:nth-of-type(2) {
+                    margin-right: 0;
+                }
+
+                .card-feature__box:nth-of-type(n+3) {
+                    display: none;
+                }
+            }
+
+        .card-feature__pickles,
+        .card-feature__mayo {
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #333;
+            margin-bottom: 10px;
+        }
+
+        .acknowledge__wrapper {
+            text-align: center;
+            margin: 10px;
+        }
+
+        button {
+            display: block;
+            width: 180px;
+            padding: 20px;
+            font-size: 24px;
+            margin: 0 auto;
+            background: #286efa;
+            color: #fff;
+            border: 1px solid #286efa;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+        }
+        button:disabled {
+            cursor: not-allowed;
+            background: #f9f9f9;
+            color:#ddd;
+            border: 1px solid #ddd;
+        }
+        button:not(:disabled):hover {
+            background: #fff;
+            color: #286efa;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>
+            Sandwiches as a Service
+        </h1>
+        <p>
+            Hey! Do you want to receive sandwiches on a monthly basis? Find out more about our pricing and features!
+        </p>
+    </header>
+    <div class="tabs">
+        <ul>
+            <li class="tab__toggles active" id="basic">Basic Sandwich!</li>
+            <li class="tab__toggles" id="gourmet">Gourmet Sandwich!</li>
+        </ul>
+    </div>
+    <div class="card__wrapper card__wrapper--basic active">
+        <div class="card__row card__row--price card-price">
+            <h3 class="card-price__title">
+                Pricing
+            </h3>
+            <div class="card-price__plan__wrapper">
+                <div class="card-price__plan">
+                    <div class="card__image card__image--basic"></div>
+                </div>
+                <div class="card-price__plan">
+                    <p>5 sandwiches<br>/mo</p>
+                    <p>$40</p>
+                </div>
+                <div class="card-price__plan">
+                    <p>50 sandwiches<br>/mo</p>
+                    <p>$300</p>
+                </div>
+                <div class="card-price__plan">
+                    <p>200 sandwiches<br>/mo</p>
+                    <p>$700</p>
+                </div>
+                <div class="card-price__plan">
+                    <p>50 sandwiches<br>/mo</p>
+                    <p>Ask us!</p>
+                </div>
+            </div>
+        </div>
+        <div class="card__row card__row--feature card-feature">
+            <h3 class="card-feature__title">
+                Features
+            </h3>
+            <div class="card-feature__box__wrapper">
+                <div class="card-feature__box">
+                    <div class="card-feature__pickles">Free Pickles</div>
+                    <div class="card-feature__mayo">Premium Mayo</div>
+                </div>
+                <div class="card-feature__box">
+                    <div class="card-feature__pickles">ⅹ</div>
+                    <div class="card-feature__mayo">✔</div>
+                </div>
+                <div class="card-feature__box">
+                    <div class="card-feature__pickles">ⅹ</div>
+                    <div class="card-feature__mayo">✔</div>
+                </div>
+                <div class="card-feature__box">
+                    <div class="card-feature__pickles">ⅹ</div>
+                    <div class="card-feature__mayo">✔</div>
+                </div>
+                <div class="card-feature__box">
+                    <div class="card-feature__pickles">ⅹ</div>
+                    <div class="card-feature__mayo">✔</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card__wrapper card__wrapper--gourmet">
+        <div class="card__row card__row--price card-price">
+            <h3 class="card-price__title">
+                Pricing
+            </h3>
+            <div class="card-price__plan__wrapper">
+                <div class="card-price__plan">
+                    <div class="card__image card__image--gourmet"></div>
+                </div>
+                <div class="card-price__plan">
+                    <p>5 sandwiches<br>/mo</p>
+                    <p>$80</p>
+                </div>
+                <div class="card-price__plan">
+                    <p>50 sandwiches<br>/mo</p>
+                    <p>$500</p>
+                </div>
+                <div class="card-price__plan">
+                    <p>200 sandwiches<br>/mo</p>
+                    <p>$900</p>
+                </div>
+                <div class="card-price__plan">
+                    <p>50 sandwiches<br>/mo</p>
+                    <p>Ask us!</p>
+                </div>
+            </div>
+        </div>
+        <div class="card__row card__row--feature card-feature">
+            <h3 class="card-feature__title">
+                Features
+            </h3>
+            <div class="card-feature__box__wrapper">
+                <div class="card-feature__box">
+                    <div class="card-feature__pickles">Free Pickles</div>
+                    <div class="card-feature__mayo">Premium Mayo</div>
+                </div>
+                <div class="card-feature__box">
+                    <div class="card-feature__pickles">✔</div>
+                    <div class="card-feature__mayo">✔</div>
+                </div>
+                <div class="card-feature__box">
+                    <div class="card-feature__pickles">✔</div>
+                    <div class="card-feature__mayo">✔</div>
+                </div>
+                <div class="card-feature__box">
+                    <div class="card-feature__pickles">✔</div>
+                    <div class="card-feature__mayo">✔</div>
+                </div>
+                <div class="card-feature__box">
+                    <div class="card-feature__pickles">✔</div>
+                    <div class="card-feature__mayo">✔</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="button__section">
+        <div class="acknowledge__wrapper">
+            <input type="checkbox" id="acknowledge">
+            <label for="acknowledge">By checking this box, I acknowledge I may receive the most delicious sandwich I've
+                ever had.</label>
+        </div>
+        <button id="sandwichButton" disabled>
+            Send Me Sandwich!
+        </button>
+    </div>
+
+
+
+
+
+
+
+
+    <script>
+        $('.tab__toggles').click(function () {
+            $(this).siblings().removeClass('active');
+            $(this).addClass('active');
+            const el = $(this).attr('id');
+            if (el === 'basic') {
+                $('.card__wrapper--basic').addClass('active');
+                $('.card__wrapper--gourmet').removeClass('active');
+            } else {
+                $('.card__wrapper--basic').removeClass('active');
+                $('.card__wrapper--gourmet').addClass('active');
+            }
+        });
+
+        $('input[type="checkbox"]').click(function () {
+            if ($('input[type="checkbox"]:checked').length > 0) {
+                $('#sandwichButton').prop('disabled', false);
+            } else {
+                $('#sandwichButton').prop('disabled', true);
+            }
+        });
+
+
+        $('#sandwichButton').click(function () {
+            alert('Sandwich Sent!');
+        })
+    </script>
+</body>
+
+</html>
